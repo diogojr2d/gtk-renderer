@@ -130,24 +130,4 @@ int main (int argc, char* argv[]) {
     rudolph::main(argc, argv);
 
     return 0;
-
-    /*
-    
-    GtkWidget* canvas = gtk_drawing_area_new();
-    
-    // Signals used to handle the backing surface
-    g_signal_connect(canvas, "draw", G_CALLBACK(draw_cb), NULL);
-    g_signal_connect(canvas, "configure-event", G_CALLBACK(configure_event_cb), NULL);
-
-    // Event signals
-    g_signal_connect(canvas, "motion-notify-event", G_CALLBACK(motion_notify_event_cb), NULL);
-    g_signal_connect(canvas, "button-press-event", G_CALLBACK(button_press_event_cb), NULL);
-
-    gtk_widget_set_events(canvas, gtk_widget_get_events(canvas) |
-                                  GDK_BUTTON_PRESS_MASK |
-                                  GDK_POINTER_MOTION_MASK |
-                                  GDK_POINTER_MOTION_HINT_MASK);
-
-    */
-
 }

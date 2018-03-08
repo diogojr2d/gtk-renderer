@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.20.0 -->
 <interface>
-  <requires lib="gtk+" version="3.20"/>
+  <requires lib="gtk+" version="3.10"/>
+  <object class="GtkListStore" id="list_store">
+    <columns>
+      <!-- column-name drawableObject -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">doggo1</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">doggo2</col>
+      </row>
+    </data>
+  </object>
   <object class="GtkWindow" id="main_window">
     <property name="width_request">800</property>
     <property name="height_request">600</property>
@@ -39,9 +53,26 @@
                     <property name="column_spacing">2</property>
                     <property name="row_homogeneous">True</property>
                     <child>
-                      <object class="GtkComboBox" id="box_display_file">
+                      <object class="GtkTreeView" id="treeview1">
+                        <property name="width_request">150</property>
                         <property name="visible">True</property>
-                        <property name="can_focus">False</property>
+                        <property name="can_focus">True</property>
+                        <property name="model">list_store</property>
+                        <property name="headers_visible">False</property>
+                        <child internal-child="selection">
+                          <object class="GtkTreeSelection"/>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn" id="tv_col1">
+                            <property name="title">drawableObject</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="tv_crt1" />
+                              <attributes>
+                                <attribute name="text">1</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
                       </object>
                       <packing>
                         <property name="left_attach">0</property>
