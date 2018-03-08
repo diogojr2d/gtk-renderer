@@ -15,6 +15,7 @@ void rudolph::main(int& argc, char**& argv) {
     gtk_builder_add_from_file(gtk_builder, "mainwindow.ui", NULL);
 
     auto window = MainWindow{rudolph::geometry::Size{800, 600}, gtk_builder};
+    //gtk_builder_connect_signals(gtk_builder, NULL);
     window.show();
 
     gtk_main();

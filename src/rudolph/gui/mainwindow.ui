@@ -9,8 +9,11 @@
     <property name="border_width">10</property>
     <property name="title" translatable="yes">Rudolf Paintiz</property>
     <property name="resizable">False</property>
+    <property name="default_width">800</property>
+    <property name="default_height">600</property>
+    <signal name="destroy" handler="gtk_main_quit" swapped="no"/>
     <child>
-      <object class="GtkGrid">
+      <object class="GtkGrid" id="grid1">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="row_spacing">5</property>
@@ -24,25 +27,21 @@
             <property name="label_xalign">0.10000000149011612</property>
             <property name="shadow_type">in</property>
             <child>
-              <object class="GtkAlignment">
+              <object class="GtkAlignment" id="align1">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="left_padding">12</property>
                 <child>
-                  <object class="GtkGrid">
+                  <object class="GtkGrid" id="grid2">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="row_spacing">2</property>
                     <property name="column_spacing">2</property>
+                    <property name="row_homogeneous">True</property>
                     <child>
-                      <object class="GtkScrolledWindow" id="scroll_display_file">
-                        <property name="width_request">150</property>
+                      <object class="GtkComboBox" id="box_display_file">
                         <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="shadow_type">in</property>
-                        <child>
-                          <placeholder/>
-                        </child>
+                        <property name="can_focus">False</property>
                       </object>
                       <packing>
                         <property name="left_attach">0</property>
@@ -70,7 +69,7 @@
               </object>
             </child>
             <child type="label">
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="label1">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes"> Display File</property>
@@ -89,12 +88,12 @@
             <property name="label_xalign">0.10000000149011612</property>
             <property name="shadow_type">in</property>
             <child>
-              <object class="GtkAlignment">
+              <object class="GtkAlignment" id="align2">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="left_padding">12</property>
                 <child>
-                  <object class="GtkBox">
+                  <object class="GtkBox" id="gtkbox1">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="orientation">vertical</property>
@@ -102,7 +101,7 @@
                       <placeholder/>
                     </child>
                     <child>
-                      <object class="GtkGrid">
+                      <object class="GtkGrid" id="grid3">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <child>
@@ -225,7 +224,7 @@
               </object>
             </child>
             <child type="label">
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="label2">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes"> Window </property>
@@ -244,20 +243,21 @@
             <property name="label_xalign">0.05000000074505806</property>
             <property name="shadow_type">in</property>
             <child>
-              <object class="GtkAlignment">
+              <object class="GtkAlignment" id="align3">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="left_padding">12</property>
                 <child>
                   <object class="GtkDrawingArea" id="canvas">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <signal name="configure-event" handler="on_configure_event" swapped="no"/>
+                    <signal name="draw" handler="on_draw" swapped="no"/>
                   </object>
                 </child>
               </object>
             </child>
             <child type="label">
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="label3">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes"> Viewport </property>
@@ -270,15 +270,6 @@
             <property name="width">2</property>
             <property name="height">2</property>
           </packing>
-        </child>
-        <child>
-          <placeholder/>
-        </child>
-        <child>
-          <placeholder/>
-        </child>
-        <child>
-          <placeholder/>
         </child>
       </object>
     </child>

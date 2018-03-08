@@ -17,6 +17,7 @@ public:
 
     void show();
     void close();
+    void configure_gui();
 
     Size size() const {
         return _size;
@@ -25,6 +26,7 @@ public:
 private:
     Size _size{0, 0};
     GtkWidget* gtk_window;
+    GtkBuilder* gtk_builder;
 };
 
 }
