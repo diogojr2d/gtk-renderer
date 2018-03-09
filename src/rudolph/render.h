@@ -1,6 +1,8 @@
 #ifndef RUDOLPH_RENDER_H
 #define RUDOLPH_RENDER_H
 
+#include <string>
+
 namespace rudolph {
 namespace render {
 
@@ -26,6 +28,11 @@ public:
 class Drawable {
 public:
     virtual void draw(RenderTarget&) const = 0;
+
+private:
+    unsigned int id;
+    std::string name;
+    std::string type;
 };
 
 }

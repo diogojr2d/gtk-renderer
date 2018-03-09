@@ -9,9 +9,7 @@ namespace objects {
 
 class Point: render::Drawable {
 public:
-    Point(int x, int y):
-        _x{x}, _y{y}
-    {}
+    Point(int, int);
 
     void draw(render::RenderTarget&) const override;
 
